@@ -6,7 +6,7 @@ const moment = momentNs as any // the directly callable function
 // the file we are importing is pre-built to have the lib + timezone data.
 import 'moment-timezone/builds/moment-timezone-with-data'
 
-import { NamedTimeZoneImpl, createPlugin } from '@fullcalendar/core'
+import { NamedTimeZoneImpl, createPlugin } from 'fullcalendar-custom/core'
 
 
 class MomentNamedTimeZone extends NamedTimeZoneImpl {

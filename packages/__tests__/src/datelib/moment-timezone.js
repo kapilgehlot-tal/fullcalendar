@@ -1,4 +1,4 @@
-import MomentTimeZonePlugin from '@fullcalendar/moment-timezone'
+import MomentTimeZonePlugin from 'fullcalendar-custom/moment-timezone'
 import { testTimeZoneImpl } from './timeZoneImpl'
 
 describe('moment-timezone', function() {

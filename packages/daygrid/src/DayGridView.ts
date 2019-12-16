@@ -7,7 +7,7 @@ import {
   memoize,
   DaySeries,
   DayTable
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 import AbstractDayGridView from './AbstractDayGridView'
 import SimpleDayGrid from './SimpleDayGrid'
 

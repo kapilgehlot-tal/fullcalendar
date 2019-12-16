@@ -1,4 +1,4 @@
-import frLocale from '@fullcalendar/core/locales/fr'
+import frLocale from 'fullcalendar-custom/core/locales/fr'
 
 describe('button text', function() {
 

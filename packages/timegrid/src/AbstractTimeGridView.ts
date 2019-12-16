@@ -7,8 +7,8 @@ import {
   createFormatter, diffDays,
   buildGotoAnchorHtml, getAllDayHtml, Duration, ViewProps,
   memoizeRendering
-} from '@fullcalendar/core'
-import { DayGrid } from '@fullcalendar/daygrid'
+} from 'fullcalendar-custom/core'
+import { DayGrid } from 'fullcalendar-custom/daygrid'
 import TimeGrid from './TimeGrid'
 import AllDaySplitter from './AllDaySplitter'
 

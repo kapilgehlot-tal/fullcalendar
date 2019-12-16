@@ -1,6 +1,6 @@
-import esLocale from '@fullcalendar/core/locales/es'
-import frLocale from '@fullcalendar/core/locales/fr'
-import arLocale from '@fullcalendar/core/locales/ar'
+import esLocale from 'fullcalendar-custom/core/locales/es'
+import frLocale from 'fullcalendar-custom/core/locales/fr'
+import arLocale from 'fullcalendar-custom/core/locales/ar'
 
 describe('locale', function() {
   pushOptions({

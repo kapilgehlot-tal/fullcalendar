@@ -1,4 +1,4 @@
-import DayGridPlugin from '@fullcalendar/daygrid'
+import DayGridPlugin from 'fullcalendar-custom/daygrid'
 
 export function testTimeZoneImpl(timeZoneImplPlugin) {
 

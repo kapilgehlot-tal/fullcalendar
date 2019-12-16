@@ -15,7 +15,7 @@ import {
   ViewProps,
   memoize,
   memoizeRendering
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 import DayGridDateProfileGenerator from './DayGridDateProfileGenerator'
 import DayGrid from './DayGrid'
 

@@ -1,4 +1,4 @@
-import { createPlugin } from '@fullcalendar/core'
+import { createPlugin } from 'fullcalendar-custom/core'
 import ListView from './ListView'
 
 export { ListView }

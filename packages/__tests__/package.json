@@ -1,16 +1,16 @@
 {
   "private": true,
   "dependencies": {
-    "@fullcalendar/core": "*",
-    "@fullcalendar/interaction": "*",
-    "@fullcalendar/daygrid": "*",
-    "@fullcalendar/timegrid": "*",
-    "@fullcalendar/list": "*",
-    "@fullcalendar/rrule": "*",
-    "@fullcalendar/luxon": "*",
-    "@fullcalendar/moment": "*",
-    "@fullcalendar/moment-timezone": "*",
-    "@fullcalendar/google-calendar": "*",
-    "@fullcalendar/bootstrap": "*"
+    "fullcalendar-custom/core": "*",
+    "fullcalendar-custom/interaction": "*",
+    "fullcalendar-custom/daygrid": "*",
+    "fullcalendar-custom/timegrid": "*",
+    "fullcalendar-custom/list": "*",
+    "fullcalendar-custom/rrule": "*",
+    "fullcalendar-custom/luxon": "*",
+    "fullcalendar-custom/moment": "*",
+    "fullcalendar-custom/moment-timezone": "*",
+    "fullcalendar-custom/google-calendar": "*",
+    "fullcalendar-custom/bootstrap": "*"
   }
 }

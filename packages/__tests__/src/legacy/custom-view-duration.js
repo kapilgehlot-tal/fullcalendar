@@ -1,5 +1,5 @@
-import frLocale from '@fullcalendar/core/locales/fr'
-import { View, createPlugin } from '@fullcalendar/core'
+import frLocale from 'fullcalendar-custom/core/locales/fr'
+import { View, createPlugin } from 'fullcalendar-custom/core'
 
 describe('custom view', function() {
 

@@ -26,8 +26,8 @@ import {
   MemoizedRendering,
   Theme,
   memoize
-} from '@fullcalendar/core'
-import { DayBgRow } from '@fullcalendar/daygrid'
+} from 'fullcalendar-custom/core'
+import { DayBgRow } from 'fullcalendar-custom/daygrid'
 import TimeGridEventRenderer from './TimeGridEventRenderer'
 import TimeGridMirrorRenderer from './TimeGridMirrorRenderer'
 import TimeGridFillRenderer from './TimeGridFillRenderer'

@@ -21,7 +21,7 @@ import {
   memoizeRendering,
   MemoizedRendering,
   ComponentContext
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 import Popover from './Popover'
 import DayGridEventRenderer from './DayGridEventRenderer'
 import DayGridMirrorRenderer from './DayGridMirrorRenderer'

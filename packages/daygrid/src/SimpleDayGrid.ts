@@ -11,7 +11,7 @@ import {
   Slicer,
   Hit,
   ComponentContext
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 import { default as DayGrid, DayGridSeg } from './DayGrid'
 
 export interface SimpleDayGridProps {

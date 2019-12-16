@@ -1,7 +1,7 @@
 import { getBoundingRect } from '../lib/dom-geom'
 import { isElWithinRtl } from '../lib/dom-misc'
 import { getTimeGridLine } from '../lib/time-grid'
-import { TimeGrid } from '@fullcalendar/timegrid'
+import { TimeGrid } from 'fullcalendar-custom/timegrid'
 
 describe('now indicator', function() {
   var options

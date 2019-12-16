@@ -5,7 +5,7 @@ import {
   FillRenderer,
   Seg,
   ComponentContext
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 import DayGrid, { DayGridSeg } from './DayGrid'
 
 

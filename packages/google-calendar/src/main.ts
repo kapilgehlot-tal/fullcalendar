@@ -1,4 +1,4 @@
-import { createPlugin, EventSourceDef, refineProps, addDays, DateEnv, requestJson } from '@fullcalendar/core'
+import { createPlugin, EventSourceDef, refineProps, addDays, DateEnv, requestJson } from 'fullcalendar-custom/core'
 
 // TODO: expose somehow
 const API_BASE = 'https://www.googleapis.com/calendar/v3/calendars'
@@ -11,13 +11,13 @@ const STANDARD_PROPS = { // for event source parsing
 }
 
 
-declare module '@fullcalendar/core' {
+declare module 'fullcalendar-custom/core' {
   interface OptionsInput {
     googleCalendarApiKey?: string
   }
 }
 
-declare module '@fullcalendar/core/structs/event-source' {
+declare module 'fullcalendar-custom/core/structs/event-source' {
   interface ExtendedEventSourceInput {
     googleCalendarApiKey?: string
     googleCalendarId?: string

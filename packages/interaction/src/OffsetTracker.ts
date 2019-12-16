@@ -1,7 +1,7 @@
 import {
   getClippingParents, computeRect,
   pointInsideRect, Rect
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 import { ElementScrollGeomCache } from './scroll-geom-cache'
 
 /*

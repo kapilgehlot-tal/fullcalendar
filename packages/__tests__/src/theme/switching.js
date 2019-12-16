@@ -1,5 +1,5 @@
-import BootstrapPlugin from '@fullcalendar/bootstrap'
-import DayGridPlugin from '@fullcalendar/daygrid'
+import BootstrapPlugin from 'fullcalendar-custom/bootstrap'
+import DayGridPlugin from 'fullcalendar-custom/daygrid'
 
 describe('theme switching', function() {
   pushOptions({

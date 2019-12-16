@@ -9,7 +9,7 @@ import {
   DateMarker,
   createDuration,
   createPlugin
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 
 interface RRuleParsedRecurring extends ParsedRecurring {
   typeData: RRule

@@ -15,7 +15,7 @@ import {
   isInteractionValid,
   View,
   ElementDragging
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 import HitDragging from '../interactions/HitDragging'
 import { __assign } from 'tslib'
 

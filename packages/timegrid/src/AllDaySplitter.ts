@@ -3,7 +3,7 @@ import {
   hasBgRendering,
   EventDef,
   DateSpan
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 
 export default class AllDaySplitter extends Splitter {
 

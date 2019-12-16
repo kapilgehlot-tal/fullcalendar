@@ -1,7 +1,7 @@
 import {
   Rect, computeInnerRect,
   ScrollController, ElementScrollController, WindowScrollController
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 
 /*
 Is a cache for a given element's scroll information (all the info that ScrollController stores)

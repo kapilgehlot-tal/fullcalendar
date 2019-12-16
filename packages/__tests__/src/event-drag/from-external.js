@@ -1,4 +1,4 @@
-import { Draggable } from '@fullcalendar/interaction'
+import { Draggable } from 'fullcalendar-custom/interaction'
 import { getDayEl } from '../view-render/DayGridRenderUtils'
 
 describe('external event dragging', function() {

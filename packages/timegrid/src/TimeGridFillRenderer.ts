@@ -1,6 +1,6 @@
 import {
   FillRenderer, Seg
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 import TimeGrid from './TimeGrid'
 
 

@@ -2,7 +2,7 @@ import {
   Calendar, DateSelectionApi,
   PointerDragEvent,
   elementClosest
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 import PointerDragging from '../dnd/PointerDragging'
 import EventDragging from './EventDragging'
 

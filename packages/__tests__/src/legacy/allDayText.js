@@ -1,4 +1,4 @@
-import ptBrLocale from '@fullcalendar/core/locales/pt-br'
+import ptBrLocale from 'fullcalendar-custom/core/locales/pt-br'
 import { getAllDayAxisElText } from '../view-render/DayGridRenderUtils'
 
 describe('allDayText', function() {

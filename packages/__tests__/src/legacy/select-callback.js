@@ -1,6 +1,6 @@
-import { Calendar } from '@fullcalendar/core'
-import DayGridPlugin from '@fullcalendar/daygrid'
-import InteractionPlugin from '@fullcalendar/interaction'
+import { Calendar } from 'fullcalendar-custom/core'
+import DayGridPlugin from 'fullcalendar-custom/daygrid'
+import InteractionPlugin from 'fullcalendar-custom/interaction'
 
 describe('select callback', function() {
 

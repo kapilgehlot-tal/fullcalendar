@@ -1,4 +1,4 @@
-import { addDays } from '@fullcalendar/core'
+import { addDays } from 'fullcalendar-custom/core'
 import { parseUtcDate } from '../lib/date-parsing'
 
 describe('current date', function() {

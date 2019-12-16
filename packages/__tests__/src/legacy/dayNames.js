@@ -1,7 +1,7 @@
 import { getHeaderEl } from '../view-render/DayGridRenderUtils'
 import { DAY_CLASSES } from '../lib/constants'
 import { removeLtrCharCodes } from '../lib/string'
-import { addDays } from '@fullcalendar/core'
+import { addDays } from 'fullcalendar-custom/core'
 import { parseUtcDate } from '../lib/date-parsing'
 
 describe('day names', function() {

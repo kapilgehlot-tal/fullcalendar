@@ -1,8 +1,8 @@
 import ListenerCounter from '../lib/ListenerCounter'
-import { Calendar } from '@fullcalendar/core'
-import InteractionPlugin, { ThirdPartyDraggable } from '@fullcalendar/interaction'
-import DayGridPlugin from '@fullcalendar/daygrid'
-import TimeGridPlugin from '@fullcalendar/timegrid'
+import { Calendar } from 'fullcalendar-custom/core'
+import InteractionPlugin, { ThirdPartyDraggable } from 'fullcalendar-custom/interaction'
+import DayGridPlugin from 'fullcalendar-custom/daygrid'
+import TimeGridPlugin from 'fullcalendar-custom/timegrid'
 import 'components-jqueryui' // for .sortable and .draggable
 
 describe('external drag and drop with jquery UI', function() {

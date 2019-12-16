@@ -2,7 +2,7 @@ import {
   DateProfileGenerator,
   addWeeks, diffWeeks,
   DateRange
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 
 export default class DayGridDateProfileGenerator extends DateProfileGenerator {
 

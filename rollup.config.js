@@ -242,7 +242,7 @@ function buildTestConfig() {
 
 function getCorePkgStruct() {
   for (let pkgStruct of pkgStructs) {
-    if (pkgStruct.name === '@fullcalendar/core') {
+    if (pkgStruct.name === 'fullcalendar-custom/core') {
       return pkgStruct
     }
   }

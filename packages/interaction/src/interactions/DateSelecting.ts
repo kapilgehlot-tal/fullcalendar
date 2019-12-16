@@ -2,7 +2,7 @@ import {
   compareNumbers, enableCursor, disableCursor, DateComponent, Hit,
   DateSpan, PointerDragEvent, dateSelectionJoinTransformer,
   Interaction, InteractionSettings, interactionSettingsToStore
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 import HitDragging from './HitDragging'
 import FeaturefulElementDragging from '../dnd/FeaturefulElementDragging'
 import { __assign } from 'tslib'

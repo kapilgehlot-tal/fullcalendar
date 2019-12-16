@@ -1,5 +1,5 @@
-import { createPlugin } from '@fullcalendar/core'
-import DayGridPlugin, { DayGridView } from '@fullcalendar/daygrid'
+import { createPlugin } from 'fullcalendar-custom/core'
+import DayGridPlugin, { DayGridView } from 'fullcalendar-custom/daygrid'
 
 describe('view-specific options', function() {
 

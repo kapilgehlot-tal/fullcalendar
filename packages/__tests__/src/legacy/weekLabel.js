@@ -1,4 +1,4 @@
-import esLocale from '@fullcalendar/core/locales/es'
+import esLocale from 'fullcalendar-custom/core/locales/es'
 
 describe('weekLabel', function() {
 

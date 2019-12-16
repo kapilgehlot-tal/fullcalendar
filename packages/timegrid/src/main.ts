@@ -1,4 +1,4 @@
-import { createPlugin } from '@fullcalendar/core'
+import { createPlugin } from 'fullcalendar-custom/core'
 import AbstractTimeGridView from './AbstractTimeGridView'
 import TimeGridView, { buildDayTable } from './TimeGridView'
 import { TimeGridSeg } from './TimeGrid'

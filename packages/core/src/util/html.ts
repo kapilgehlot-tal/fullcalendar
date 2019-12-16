@@ -1,11 +1,11 @@
 export function htmlEscape(s) {
-  // return (s + '').replace(/&/g, '&amp;')
-  //   .replace(/</g, '&lt;')
-  //   .replace(/>/g, '&gt;')
-  //   .replace(/'/g, '&#039;')
-  //   .replace(/"/g, '&quot;')
-  //   .replace(/\n/g, '<br />')
-  return s;
+  return (s + "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/'/g, "&#039;")
+    .replace(/"/g, "&quot;")
+    .replace(/\n/g, "<br />");
 }
 
 // Given a hash of CSS properties, returns a string of CSS.

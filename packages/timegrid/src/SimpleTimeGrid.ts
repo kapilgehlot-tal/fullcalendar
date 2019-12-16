@@ -13,7 +13,7 @@ import {
   Slicer,
   Hit,
   ComponentContext
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 import TimeGrid, { TimeGridSeg } from './TimeGrid'
 
 export interface SimpleTimeGridProps {

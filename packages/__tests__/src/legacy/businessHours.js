@@ -9,7 +9,7 @@ import {
 } from '../lib/time-grid'
 import { ensureDate } from '../datelib/utils'
 import { getDayGridNonBusinessDayEls } from '../view-render/DayGridRenderUtils'
-import { startOfDay } from '@fullcalendar/core'
+import { startOfDay } from 'fullcalendar-custom/core'
 
 
 describe('businessHours', function() {

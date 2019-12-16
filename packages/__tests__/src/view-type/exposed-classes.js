@@ -1,6 +1,6 @@
-import { DayGridView, DayGrid } from '@fullcalendar/daygrid'
-import { ListView } from '@fullcalendar/list'
-import { TimeGridView, TimeGrid } from '@fullcalendar/timegrid'
+import { DayGridView, DayGrid } from 'fullcalendar-custom/daygrid'
+import { ListView } from 'fullcalendar-custom/list'
+import { TimeGridView, TimeGrid } from 'fullcalendar-custom/timegrid'
 
 describe('internal View/Grid classes', function() {
 

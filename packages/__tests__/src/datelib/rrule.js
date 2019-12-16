@@ -1,5 +1,5 @@
-import DayGridPlugin from '@fullcalendar/daygrid'
-import RRulePlugin from '@fullcalendar/rrule'
+import DayGridPlugin from 'fullcalendar-custom/daygrid'
+import RRulePlugin from 'fullcalendar-custom/rrule'
 import { parseUtcDate, parseLocalDate } from '../lib/date-parsing'
 
 describe('rrule plugin', function() {

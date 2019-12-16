@@ -1,6 +1,6 @@
-import frLocale from '@fullcalendar/core/locales/fr'
-import enGbLocale from '@fullcalendar/core/locales/en-gb'
-import koLocale from '@fullcalendar/core/locales/ko'
+import frLocale from 'fullcalendar-custom/core/locales/fr'
+import enGbLocale from 'fullcalendar-custom/core/locales/en-gb'
+import koLocale from 'fullcalendar-custom/core/locales/ko'
 
 describe('columnHeaderFormat', function() {
 

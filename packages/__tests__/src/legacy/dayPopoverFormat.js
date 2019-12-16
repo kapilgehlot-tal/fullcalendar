@@ -1,4 +1,4 @@
-import frLocale from '@fullcalendar/core/locales/fr'
+import frLocale from 'fullcalendar-custom/core/locales/fr'
 import { getMoreEl, getMorePopoverTitle } from '../view-render/DayGridRenderUtils'
 
 describe('dayPopoverFormat', function() {

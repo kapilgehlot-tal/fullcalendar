@@ -14,7 +14,7 @@ import {
   eventDragMutationMassager,
   Interaction, InteractionSettings, interactionSettingsStore,
   EventDropTransformers
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 import HitDragging, { isHitsEqual } from './HitDragging'
 import FeaturefulElementDragging from '../dnd/FeaturefulElementDragging'
 import { __assign } from 'tslib'

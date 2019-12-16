@@ -1,5 +1,5 @@
-import GoogleCalendarPlugin from '@fullcalendar/google-calendar'
-import DayGridPlugin from '@fullcalendar/daygrid'
+import GoogleCalendarPlugin from 'fullcalendar-custom/google-calendar'
+import DayGridPlugin from 'fullcalendar-custom/daygrid'
 
 // HACK: in our CI setup, requests to the google-calendar api were failing for some reason
 // (requests to other services were working however)

@@ -1,6 +1,6 @@
 import deepEqual from 'fast-deep-equal'
-import { Calendar } from '@fullcalendar/core'
-import timeGridPlugin from '@fullcalendar/timegrid'
+import { Calendar } from 'fullcalendar-custom/core'
+import timeGridPlugin from 'fullcalendar-custom/timegrid'
 import { getFirstDateEl } from '../lib/ViewUtils'
 import { getEventEls } from '../event-render/EventRenderUtils'
 import { getTimeGridScroller, allDaySlotDisplayed } from '../lib/TimeGridViewUtils'

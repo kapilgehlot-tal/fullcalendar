@@ -1,5 +1,5 @@
-import BootstrapPlugin from '@fullcalendar/bootstrap'
-import TimeGridPlugin from '@fullcalendar/timegrid'
+import BootstrapPlugin from 'fullcalendar-custom/bootstrap'
+import TimeGridPlugin from 'fullcalendar-custom/timegrid'
 
 describe('themeSystem', function() {
 

@@ -1,6 +1,6 @@
 import * as momentNs from 'moment'
 const moment = momentNs as any // the directly callable function
-import { Calendar, Duration, VerboseFormattingArg, createPlugin } from '@fullcalendar/core'
+import { Calendar, Duration, VerboseFormattingArg, createPlugin } from 'fullcalendar-custom/core'
 
 
 export function toMoment(date: Date, calendar: Calendar): momentNs.Moment {

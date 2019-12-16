@@ -4,7 +4,7 @@ import {
   getDayClasses,
   rangeContainsMarker,
   DateProfile
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 
 export interface DayBgCell {
   date: DateMarker

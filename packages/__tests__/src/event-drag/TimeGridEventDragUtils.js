@@ -1,6 +1,6 @@
 import * as EventDragUtils from './EventDragUtils'
 import { computeSpanRects } from '../view-render/TimeGridRenderUtils'
-import { parseMarker, addMs } from '@fullcalendar/core'
+import { parseMarker, addMs } from 'fullcalendar-custom/core'
 
 export function drag(startDate, endDate, debug) {
 

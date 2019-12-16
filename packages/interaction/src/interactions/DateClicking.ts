@@ -1,4 +1,4 @@
-import { PointerDragEvent, Interaction, InteractionSettings, interactionSettingsToStore } from '@fullcalendar/core'
+import { PointerDragEvent, Interaction, InteractionSettings, interactionSettingsToStore } from 'fullcalendar-custom/core'
 import FeaturefulElementDragging from '../dnd/FeaturefulElementDragging'
 import HitDragging, { isHitsEqual } from './HitDragging'
 

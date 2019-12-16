@@ -5,7 +5,7 @@ import {
   FgEventRenderer, buildSegCompareObj,
   Seg, isMultiDayRange, compareByFieldSpecs,
   computeEventDraggable, computeEventStartResizable, computeEventEndResizable, ComponentContext
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 import TimeGrid from './TimeGrid'
 
 /*

@@ -4,7 +4,7 @@ import {
   appendToElement,
   prependToElement,
   Seg
-} from '@fullcalendar/core'
+} from 'fullcalendar-custom/core'
 import DayGrid from './DayGrid'
 import SimpleDayGridEventRenderer from './SimpleDayGridEventRenderer'
 

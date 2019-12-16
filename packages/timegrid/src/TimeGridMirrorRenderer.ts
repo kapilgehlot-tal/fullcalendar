@@ -1,4 +1,4 @@
-import { Seg } from '@fullcalendar/core'
+import { Seg } from 'fullcalendar-custom/core'
 import TimeGridEventRenderer from './TimeGridEventRenderer'
 
 
