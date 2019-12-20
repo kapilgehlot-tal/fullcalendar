@@ -36,19 +36,19 @@ export default abstract class SimpleDayGridEventRenderer extends FgEventRenderer
       mirrorInfo
     );
     let skinCss = cssToStr(this.getSkinCss(eventUi));
-    let timeHtml = "";
-    let timeText;
+    // let timeHtml = "";
+    // let timeText;
     let titleHtml;
 
     classes.unshift("fc-day-grid-event", "fc-h-event");
 
     // Only display a timed events time if it is the starting segment
-    if (seg.isStart) {
-      timeText = this.getTimeText(eventRange);
-      if (timeText) {
-        timeHtml = '<span class="fc-time">' + htmlEscape(timeText) + "</span>";
-      }
-    }
+    // if (seg.isStart) {
+    //   timeText = this.getTimeText(eventRange);
+    //   if (timeText) {
+    //     timeHtml = '<span class="fc-time">' + htmlEscape(timeText) + "</span>";
+    //   }
+    // }
 
     titleHtml = eventDef.title || "&nbsp;"; // we always want one line of height
     return (
@@ -59,9 +59,10 @@ export default abstract class SimpleDayGridEventRenderer extends FgEventRenderer
       (skinCss ? ' style="' + skinCss + '"' : "") +
       ">" +
       '<div class="fc-content">' +
-      (context.options.dir === "rtl"
-        ? titleHtml + " " + timeHtml // put a natural space in between
-        : timeHtml + " " + titleHtml) + //
+      // (context.options.dir === "rtl"
+      //   ? titleHtml + " " + timeHtml // put a natural space in between
+      //   : timeHtml + " " + titleHtml) + //
+      titleHtml +
       "</div>" +
       (isResizableFromStart
         ? '<div class="fc-resizer fc-start-resizer"></div>'
