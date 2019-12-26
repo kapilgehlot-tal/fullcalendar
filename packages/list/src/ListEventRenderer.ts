@@ -1,10 +1,4 @@
-import {
-  htmlEscape,
-  FgEventRenderer,
-  Seg,
-  isMultiDayRange,
-  getAllDayHtml
-} from "fullcalendar-custom/core";
+import { htmlEscape, FgEventRenderer, Seg } from "fullcalendar-custom/core";
 import ListView from "./ListView";
 
 export default class ListEventRenderer extends FgEventRenderer {
@@ -28,7 +22,7 @@ export default class ListEventRenderer extends FgEventRenderer {
 
   // generates the HTML for a single event row
   renderSegHtml(seg: Seg) {
-    let { theme, options } = this.context;
+    let { theme } = this.context;
     let eventRange = seg.eventRange;
     let eventDef = eventRange.def;
     //let eventInstance = eventRange.instance;
