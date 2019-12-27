@@ -313,7 +313,8 @@ export default class ListView extends View {
     return createElement(
       "tr",
       {
-        className: "fc-list-heading",
+        className:
+          dayIndex === 0 ? "fc-list-heading first-child" : "fc-list-heading",
         id: `${
           dateEnv.formatIso(dayDate, { omitTime: true }) ===
           moment().format("YYYY-MM-DD")
