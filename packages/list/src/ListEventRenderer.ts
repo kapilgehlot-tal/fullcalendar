@@ -11,11 +11,15 @@ export default class ListEventRenderer extends FgEventRenderer {
   }
 
   attachSegs(segs: Seg[]) {
-    if (!segs.length) {
-      this.listView.renderEmptyMessage();
-    } else {
-      this.listView.renderSegList(segs);
-    }
+    // if (!segs.length) {
+    //   this.listView.renderEmptyMessage();
+    // } else {
+    //   this.listView.renderSegList(segs);
+    // }
+
+    //Render for an empty event too
+
+    this.listView.renderSegList(segs);
   }
 
   detachSegs() {}

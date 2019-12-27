@@ -24,120 +24,117 @@ import {
   memoizeRendering,
   Seg,
   ViewSpec
-} from 'fullcalendar-custom/core'
-import ListEventRenderer from './ListEventRenderer'
+} from "fullcalendar-custom/core";
+import ListEventRenderer from "./ListEventRenderer";
 
 /*
 Responsible for the scroller, and forwarding event-related actions into the "grid".
 */
 export default class ListView extends View {
+  scroller: ScrollComponent;
+  contentEl: HTMLElement;
 
-  scroller: ScrollComponent
-  contentEl: HTMLElement
+  dayDates: DateMarker[]; // TOOD: kill this. only have it because ListEventRenderer
 
-  dayDates: DateMarker[] // TOOD: kill this. only have it because ListEventRenderer
-
-  private computeDateVars = memoize(computeDateVars)
-  private eventStoreToSegs = memoize(this._eventStoreToSegs)
-  private renderSkeleton = memoizeRendering(this._renderSkeleton, this._unrenderSkeleton)
-  private renderContent: MemoizedRendering<[ComponentContext, Seg[]]>
-
+  private computeDateVars = memoize(computeDateVars);
+  private eventStoreToSegs = memoize(this._eventStoreToSegs);
+  private renderSkeleton = memoizeRendering(
+    this._renderSkeleton,
+    this._unrenderSkeleton
+  );
+  private renderContent: MemoizedRendering<[ComponentContext, Seg[]]>;
 
   constructor(viewSpec: ViewSpec, parentEl: HTMLElement) {
-    super(viewSpec, parentEl)
+    super(viewSpec, parentEl);
 
-    let eventRenderer = this.eventRenderer = new ListEventRenderer(this)
+    let eventRenderer = (this.eventRenderer = new ListEventRenderer(this));
     this.renderContent = memoizeRendering(
       eventRenderer.renderSegs.bind(eventRenderer),
       eventRenderer.unrender.bind(eventRenderer),
-      [ this.renderSkeleton ]
-    )
+      [this.renderSkeleton]
+    );
   }
-
 
   firstContext(context: ComponentContext) {
     context.calendar.registerInteractiveComponent(this, {
       el: this.el
       // TODO: make aware that it doesn't do Hits
-    })
+    });
   }
 
-
   render(props: ViewProps, context: ComponentContext) {
-    super.render(props, context)
+    super.render(props, context);
 
-    let { dayDates, dayRanges } = this.computeDateVars(props.dateProfile)
-    this.dayDates = dayDates
+    let { dayDates, dayRanges } = this.computeDateVars(props.dateProfile);
+    this.dayDates = dayDates;
 
-    this.renderSkeleton(context)
+    this.renderSkeleton(context);
 
     this.renderContent(
       context,
       this.eventStoreToSegs(props.eventStore, props.eventUiBases, dayRanges)
-    )
+    );
   }
-
 
   destroy() {
-    super.destroy()
+    super.destroy();
 
-    this.renderSkeleton.unrender()
-    this.renderContent.unrender()
+    this.renderSkeleton.unrender();
+    this.renderContent.unrender();
 
-    this.context.calendar.unregisterInteractiveComponent(this)
+    this.context.calendar.unregisterInteractiveComponent(this);
   }
 
-
   _renderSkeleton(context: ComponentContext) {
-    let { theme } = context
+    let { theme } = context;
 
-    this.el.classList.add('fc-list-view')
+    this.el.classList.add("fc-list-view");
 
-    let listViewClassNames = (theme.getClass('listView') || '').split(' ') // wish we didn't have to do this
+    let listViewClassNames = (theme.getClass("listView") || "").split(" "); // wish we didn't have to do this
     for (let listViewClassName of listViewClassNames) {
-      if (listViewClassName) { // in case input was empty string
-        this.el.classList.add(listViewClassName)
+      if (listViewClassName) {
+        // in case input was empty string
+        this.el.classList.add(listViewClassName);
       }
     }
 
     this.scroller = new ScrollComponent(
-      'hidden', // overflow x
-      'auto' // overflow y
-    )
+      "hidden", // overflow x
+      "auto" // overflow y
+    );
 
-    this.el.appendChild(this.scroller.el)
-    this.contentEl = this.scroller.el // shortcut
+    this.el.appendChild(this.scroller.el);
+    this.contentEl = this.scroller.el; // shortcut
   }
-
 
   _unrenderSkeleton() {
     // TODO: remove classNames
 
-    this.scroller.destroy() // will remove the Grid too
+    this.scroller.destroy(); // will remove the Grid too
   }
 
-
   updateSize(isResize, viewHeight, isAuto) {
-    super.updateSize(isResize, viewHeight, isAuto)
+    super.updateSize(isResize, viewHeight, isAuto);
 
-    this.eventRenderer.computeSizes(isResize)
-    this.eventRenderer.assignSizes(isResize)
+    this.eventRenderer.computeSizes(isResize);
+    this.eventRenderer.assignSizes(isResize);
 
-    this.scroller.clear() // sets height to 'auto' and clears overflow
+    this.scroller.clear(); // sets height to 'auto' and clears overflow
 
     if (!isAuto) {
-      this.scroller.setHeight(this.computeScrollerHeight(viewHeight))
+      this.scroller.setHeight(this.computeScrollerHeight(viewHeight));
     }
   }
 
-
   computeScrollerHeight(viewHeight) {
-    return viewHeight -
-      subtractInnerElHeight(this.el, this.scroller.el) // everything that's NOT the scroller
+    return viewHeight - subtractInnerElHeight(this.el, this.scroller.el); // everything that's NOT the scroller
   }
 
-
-  _eventStoreToSegs(eventStore: EventStore, eventUiBases: EventUiHash, dayRanges: DateRange[]): Seg[] {
+  _eventStoreToSegs(
+    eventStore: EventStore,
+    eventUiBases: EventUiHash,
+    dayRanges: DateRange[]
+  ): Seg[] {
     return this.eventRangesToSegs(
       sliceEventStore(
         eventStore,
@@ -146,32 +143,30 @@ export default class ListView extends View {
         this.context.nextDayThreshold
       ).fg,
       dayRanges
-    )
+    );
   }
-
 
   eventRangesToSegs(eventRanges: EventRenderRange[], dayRanges: DateRange[]) {
-    let segs = []
+    let segs = [];
 
     for (let eventRange of eventRanges) {
-      segs.push(...this.eventRangeToSegs(eventRange, dayRanges))
+      segs.push(...this.eventRangeToSegs(eventRange, dayRanges));
     }
 
-    return segs
+    return segs;
   }
 
-
   eventRangeToSegs(eventRange: EventRenderRange, dayRanges: DateRange[]) {
-    let { dateEnv, nextDayThreshold } = this.context
-    let range = eventRange.range
-    let allDay = eventRange.def.allDay
-    let dayIndex
-    let segRange
-    let seg
-    let segs = []
+    let { dateEnv, nextDayThreshold } = this.context;
+    let range = eventRange.range;
+    let allDay = eventRange.def.allDay;
+    let dayIndex;
+    let segRange;
+    let seg;
+    let segs = [];
 
     for (dayIndex = 0; dayIndex < dayRanges.length; dayIndex++) {
-      segRange = intersectRanges(range, dayRanges[dayIndex])
+      segRange = intersectRanges(range, dayRanges[dayIndex]);
 
       if (segRange) {
         seg = {
@@ -179,150 +174,157 @@ export default class ListView extends View {
           eventRange,
           start: segRange.start,
           end: segRange.end,
-          isStart: eventRange.isStart && segRange.start.valueOf() === range.start.valueOf(),
-          isEnd: eventRange.isEnd && segRange.end.valueOf() === range.end.valueOf(),
+          isStart:
+            eventRange.isStart &&
+            segRange.start.valueOf() === range.start.valueOf(),
+          isEnd:
+            eventRange.isEnd && segRange.end.valueOf() === range.end.valueOf(),
           dayIndex: dayIndex
-        }
+        };
 
-        segs.push(seg)
+        segs.push(seg);
 
         // detect when range won't go fully into the next day,
         // and mutate the latest seg to the be the end.
         if (
-          !seg.isEnd && !allDay &&
+          !seg.isEnd &&
+          !allDay &&
           dayIndex + 1 < dayRanges.length &&
           range.end <
-            dateEnv.add(
-              dayRanges[dayIndex + 1].start,
-              nextDayThreshold
-            )
+            dateEnv.add(dayRanges[dayIndex + 1].start, nextDayThreshold)
         ) {
-          seg.end = range.end
-          seg.isEnd = true
-          break
+          seg.end = range.end;
+          seg.isEnd = true;
+          break;
         }
       }
     }
 
-    return segs
+    return segs;
   }
-
 
   renderEmptyMessage() {
     this.contentEl.innerHTML =
       '<div class="fc-list-empty-wrap2">' + // TODO: try less wraps
       '<div class="fc-list-empty-wrap1">' +
       '<div class="fc-list-empty">' +
-        htmlEscape(this.context.options.noEventsMessage) +
-      '</div>' +
-      '</div>' +
-      '</div>'
+      htmlEscape(this.context.options.noEventsMessage) +
+      "</div>" +
+      "</div>" +
+      "</div>";
   }
-
 
   // called by ListEventRenderer
   renderSegList(allSegs) {
-    let { theme } = this.context
-    let segsByDay = this.groupSegsByDay(allSegs) // sparse array
-    let dayIndex
-    let daySegs
-    let i
-    let tableEl = htmlToElement('<table class="fc-list-table ' + theme.getClass('tableList') + '"><tbody></tbody></table>')
-    let tbodyEl = tableEl.querySelector('tbody')
+    let { theme } = this.context;
+    let segsByDay = this.groupSegsByDay(allSegs); // sparse array
+    let dayIndex;
+    let daySegs;
+    let i;
+    let tableEl = htmlToElement(
+      '<table class="fc-list-table ' +
+        theme.getClass("tableList") +
+        '"><tbody></tbody></table>'
+    );
+    let tbodyEl = tableEl.querySelector("tbody");
 
     for (dayIndex = 0; dayIndex < segsByDay.length; dayIndex++) {
-      daySegs = segsByDay[dayIndex]
+      daySegs = segsByDay[dayIndex];
 
-      if (daySegs) { // sparse array, so might be undefined
+      if (daySegs) {
+        // sparse array, so might be undefined
 
         // append a day header
-        tbodyEl.appendChild(this.buildDayHeaderRow(this.dayDates[dayIndex]))
+        tbodyEl.appendChild(this.buildDayHeaderRow(this.dayDates[dayIndex]));
 
-        daySegs = this.eventRenderer.sortEventSegs(daySegs)
+        daySegs = this.eventRenderer.sortEventSegs(daySegs);
 
         for (i = 0; i < daySegs.length; i++) {
-          tbodyEl.appendChild(daySegs[i].el) // append event row
+          tbodyEl.appendChild(daySegs[i].el); // append event row
         }
+      } else {
+        tbodyEl.appendChild(this.buildDayHeaderRow(this.dayDates[dayIndex]));
       }
     }
 
-    this.contentEl.innerHTML = ''
-    this.contentEl.appendChild(tableEl)
+    this.contentEl.innerHTML = "";
+    this.contentEl.appendChild(tableEl);
   }
-
 
   // Returns a sparse array of arrays, segs grouped by their dayIndex
   groupSegsByDay(segs) {
-    let segsByDay = [] // sparse array
-    let i
-    let seg
+    let segsByDay = []; // sparse array
+    let i;
+    let seg;
 
     for (i = 0; i < segs.length; i++) {
       seg = segs[i];
-      (segsByDay[seg.dayIndex] || (segsByDay[seg.dayIndex] = []))
-        .push(seg)
+      (segsByDay[seg.dayIndex] || (segsByDay[seg.dayIndex] = [])).push(seg);
     }
 
-    return segsByDay
-  }
+    if (!segs.length) {
+      segsByDay = [null, null, null, null, null, null, null];
+    }
 
+    return segsByDay;
+  }
 
   // generates the HTML for the day headers that live amongst the event rows
   buildDayHeaderRow(dayDate) {
-    let { theme, dateEnv, options } = this.context
-    let mainFormat = createFormatter(options.listDayFormat) // TODO: cache
-    let altFormat = createFormatter(options.listDayAltFormat) // TODO: cache
+    let { theme, dateEnv, options } = this.context;
+    let mainFormat = createFormatter(options.listDayFormat); // TODO: cache
+    let altFormat = createFormatter(options.listDayAltFormat); // TODO: cache
 
-    return createElement('tr', {
-      className: 'fc-list-heading',
-      'data-date': dateEnv.formatIso(dayDate, { omitTime: true })
-    }, '<td class="' + (
-      theme.getClass('tableListHeading') ||
-      theme.getClass('widgetHeader')
-    ) + '" colspan="3">' +
-      (mainFormat ?
-        buildGotoAnchorHtml(
-          options,
-          dateEnv,
-          dayDate,
-          { 'class': 'fc-list-heading-main' },
-          htmlEscape(dateEnv.format(dayDate, mainFormat)) // inner HTML
-        ) :
-        '') +
-      (altFormat ?
-        buildGotoAnchorHtml(
-          options,
-          dateEnv,
-          dayDate,
-          { 'class': 'fc-list-heading-alt' },
-          htmlEscape(dateEnv.format(dayDate, altFormat)) // inner HTML
-        ) :
-        '') +
-    '</td>') as HTMLTableRowElement
+    return createElement(
+      "tr",
+      {
+        className: "fc-list-heading",
+        "data-date": dateEnv.formatIso(dayDate, { omitTime: true })
+      },
+      '<td class="' +
+        (theme.getClass("tableListHeading") || theme.getClass("widgetHeader")) +
+        '" colspan="3">' +
+        (mainFormat
+          ? buildGotoAnchorHtml(
+              options,
+              dateEnv,
+              dayDate,
+              { class: "fc-list-heading-main" },
+              htmlEscape(dateEnv.format(dayDate, mainFormat)) // inner HTML
+            )
+          : "") +
+        (altFormat
+          ? buildGotoAnchorHtml(
+              options,
+              dateEnv,
+              dayDate,
+              { class: "fc-list-heading-alt" },
+              htmlEscape(dateEnv.format(dayDate, altFormat)) // inner HTML
+            )
+          : "") +
+        "</td>"
+    ) as HTMLTableRowElement;
   }
-
 }
 
-ListView.prototype.fgSegSelector = '.fc-list-item' // which elements accept event actions
-
+ListView.prototype.fgSegSelector = ".fc-list-item"; // which elements accept event actions
 
 function computeDateVars(dateProfile: DateProfile) {
-  let dayStart = startOfDay(dateProfile.renderRange.start)
-  let viewEnd = dateProfile.renderRange.end
-  let dayDates: DateMarker[] = []
-  let dayRanges: DateRange[] = []
+  let dayStart = startOfDay(dateProfile.renderRange.start);
+  let viewEnd = dateProfile.renderRange.end;
+  let dayDates: DateMarker[] = [];
+  let dayRanges: DateRange[] = [];
 
   while (dayStart < viewEnd) {
-
-    dayDates.push(dayStart)
+    dayDates.push(dayStart);
 
     dayRanges.push({
       start: dayStart,
       end: addDays(dayStart, 1)
-    })
+    });
 
-    dayStart = addDays(dayStart, 1)
+    dayStart = addDays(dayStart, 1);
   }
 
-  return { dayDates, dayRanges }
+  return { dayDates, dayRanges };
 }
