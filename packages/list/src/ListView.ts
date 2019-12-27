@@ -26,6 +26,7 @@ import {
   ViewSpec
 } from "fullcalendar-custom/core";
 import ListEventRenderer from "./ListEventRenderer";
+const moment = require("moment");
 
 /*
 Responsible for the scroller, and forwarding event-related actions into the "grid".
@@ -279,6 +280,12 @@ export default class ListView extends View {
       "tr",
       {
         className: "fc-list-heading",
+        id: `${
+          dateEnv.formatIso(dayDate, { omitTime: true }) ===
+          moment().format("YYYY-MM-DD")
+            ? "scroll"
+            : ""
+        }`,
         "data-date": dateEnv.formatIso(dayDate, { omitTime: true })
       },
       '<td class="' +
