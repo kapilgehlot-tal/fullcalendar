@@ -267,6 +267,10 @@ export default class ListView extends View {
       (segsByDay[seg.dayIndex] || (segsByDay[seg.dayIndex] = [])).push(seg);
     }
 
+    while (segsByDay.length < 7) {
+      segsByDay.push(null);
+    }
+
     if (!segs.length) {
       segsByDay = [null, null, null, null, null, null, null];
     }
